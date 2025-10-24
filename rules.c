@@ -9,4 +9,3 @@ void ft_hello(){
 int main(void){
     ft_hello();
 }
-vfgfree
