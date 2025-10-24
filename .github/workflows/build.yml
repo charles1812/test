@@ -1,8 +1,9 @@
+# File: .github/workflows/build.yml
 name: GCC Build Check
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -14,7 +15,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install GCC
-        run: sudo apt-get update && sudo apt-get install -y build-essential
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
 
       - name: Compile project
-        run: gcc -Wall -Werror -o program main.c
+        run: |
+          gcc -Wall -Werror -o program rules.c
